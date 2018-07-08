@@ -1,10 +1,8 @@
 import numpy as np
 from numpy.linalg import inv
-
-#matrix = np.array([[1, 1, 1, 5], [2, 3, 5, 8], [4, 0, 5, 2]], dtype=float)
-#matrix = np.array([[1, 2, -3, 2], [6, 3, -9, 6], [7, 14, -21, 13]], dtype=float)
-#matrix = np.array([[2, 6, -2, 3], [4, 8, -5, 4], [0, 4, 1, 2]], dtype=float)
-matrix = np.array([[2, -2, 3], [6, -7, 14], [4, -8, 30]], dtype=float)
+#matrix = np.array([[2, -2, 3], [6, -7, 14], [4, -8, 30]], dtype=float)
+matrix = np.array([[1, 1, 1], [4, 3, -1], [3, 5, 3]], dtype=float)
+const1 = np.array([[1], [6], [4]])
 
 
 def elementary_matrix(m):
@@ -44,7 +42,15 @@ def lower_triangular_matrix(m):
     return mat
 
 
-print(lower_triangular_matrix(matrix))
+def solve_equation(m, const):
+    upper = upper_triangular_matrix(m)
+    lower = lower_triangular_matrix(m)
+    mat = np.matmul(inv(lower), const)
+    mat = np.matmul(inv(upper), mat)
+    return mat
+
+
+print(solve_equation(matrix, const1))
 
 
 
