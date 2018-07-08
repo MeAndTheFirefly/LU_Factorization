@@ -1,8 +1,11 @@
 import numpy as np
 from numpy.linalg import inv
-#matrix = np.array([[2, -2, 3], [6, -7, 14], [4, -8, 30]], dtype=float)
-matrix = np.array([[1, 1, 1], [4, 3, -1], [3, 5, 3]], dtype=float)
+
+matrix1 = np.array([[1, 1, 1], [4, 3, -1], [3, 5, 3]], dtype=float)
 const1 = np.array([[1], [6], [4]])
+
+matrix2 = np.array([[1, 1, 1], [2, 3, 5], [4, 0, 5]], dtype=float)
+const2 = np.array([[5], [8], [2]])
 
 
 def elementary_matrix(m):
@@ -50,7 +53,7 @@ def solve_equation(m, const):
     return mat
 
 
-print(solve_equation(matrix, const1))
+print(solve_equation(matrix2, const2))
 
 
 
